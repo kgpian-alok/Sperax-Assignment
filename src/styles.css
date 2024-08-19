@@ -1,0 +1,39 @@
+/* src/styles.css */
+
+.App {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  input {
+    margin: 5px;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  

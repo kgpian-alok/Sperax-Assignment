@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+
+import React, { useState } from "react";
+import WalletConnection from "./components/WalletConnection";
+import WatchList from "./components/WatchList";
+import HistoricalData from "./components/HistoricalData";
+import AllowanceChecker from "./components/AllowanceChecker";
+import TokenTransfer from "./components/TokenTransfer";
+import "./styles.css";
 
 function App() {
+  const [walletAddress, setWalletAddress] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Token Watchlist App</h1>
+      <WalletConnection setWalletAddress={setWalletAddress} />
+      <hr />
+      {walletAddress && (
+        <>
+          <WatchList walletAddress={walletAddress} />
+          <hr />
+          <HistoricalData />
+          <hr />
+          <AllowanceChecker walletAddress={walletAddress} />
+          <hr />
+          <TokenTransfer walletAddress={walletAddress} />
+        </>
+      )}
     </div>
   );
 }
