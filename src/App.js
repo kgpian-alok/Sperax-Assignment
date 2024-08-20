@@ -1,15 +1,14 @@
-// src/App.js
-
-import React, { useState } from "react";
-import WalletConnection from "./components/WalletConnection";
-import WatchList from "./components/WatchList";
-import HistoricalData from "./components/HistoricalData";
-import AllowanceChecker from "./components/AllowanceChecker";
-import TokenTransfer from "./components/TokenTransfer";
-import "./styles.css";
+import React, { useState } from 'react';
+import WalletConnection from './components/WalletConnection';
+import WatchList from './components/WatchList';
+import HistoricalData from './components/HistoricalData';
+import AllowanceChecker from './components/AllowanceChecker';
+import TokenTransfer from './components/TokenTransfer';
+import './styles.css';
 
 function App() {
-  const [walletAddress, setWalletAddress] = useState("");
+  const [walletAddress, setWalletAddress] = useState('');
+  const [tokenAddress, setTokenAddress] = useState('');
 
   return (
     <div className="App">
@@ -18,9 +17,17 @@ function App() {
       <hr />
       {walletAddress && (
         <>
+          <input
+            type="text"
+            placeholder="Enter Token Address"
+            value={tokenAddress}
+            onChange={(e) => setTokenAddress(e.target.value)}
+          />
           <WatchList walletAddress={walletAddress} />
           <hr />
-          <HistoricalData />
+          {tokenAddress && (
+            <HistoricalData tokenAddress={tokenAddress} walletAddress={walletAddress} />
+          )}
           <hr />
           <AllowanceChecker walletAddress={walletAddress} />
           <hr />
